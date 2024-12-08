@@ -40,3 +40,19 @@ app.use(express.json());
 app.listen(PORT, () =>{
     console.log('Server is running on http://localhost:${PORT}')
 });
+
+// Creating records 
+
+let newTask ={
+    description: "Scoring based on exam",
+};
+
+Tasks.create(newTask)
+.then((data) =>{
+    console.log(data);
+})
+.catch((err) =>{
+    console.log(err);
+});
+
+// Find all the task 
