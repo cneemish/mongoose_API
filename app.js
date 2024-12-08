@@ -29,3 +29,14 @@ connect.then(
         console.log(err);
     }
 );
+
+// Creating express app
+
+const app = express();
+app.use(express.json());
+
+// Creating listner to accept incoming request on a spectif port
+
+app.listen(PORT, () =>{
+    console.log('Server is running on http://localhost:${PORT}')
+});
