@@ -2,7 +2,7 @@ const mongoose = require('mongoose'); //referencing the mongoose
 const Schema = mongoose.Schema; // creating a reference to a schema class
 const toDoSchema = new Schema(
     {
-        descriptin:{
+        description:{
             type: String,
             required: [true,"Please enter all the require details"],
         },

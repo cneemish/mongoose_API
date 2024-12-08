@@ -24,11 +24,43 @@ const connect = mongoose.connect(dbURI,{
 connect.then(
     (db) => {
         console.log("Connected Successfullt to Mongo Server");
+
+// Creating records 
+
+let newTask ={
+    description: "testing new data",
+    completed: true,
+    ranking: 2,
+    date:"",
+};
+
+Tasks.create(newTask)
+.then((data) =>{
+    console.log(data);
+})
+.catch((err) =>{
+    console.log(err);
+});
+
+// updating records
+
+/* Tasks.findByIdAndUpdate({_id: req.params.id},{
+    $set: {completed: false},
+},
+{new: true, useFindAndModify: false})
+.then((data) =>{
+    console.log('Updated todo data',data);
+})
+.catch((err) =>{
+    console.log(err);
+}); */
+
     },
     (err) =>{
         console.log(err);
     }
 );
+
 
 // Creating express app
 
@@ -39,20 +71,6 @@ app.use(express.json());
 
 app.listen(PORT, () =>{
     console.log('Server is running on http://localhost:${PORT}')
-});
-
-// Creating records 
-
-let newTask ={
-    description: "Scoring based on exam",
-};
-
-Tasks.create(newTask)
-.then((data) =>{
-    console.log(data);
-})
-.catch((err) =>{
-    console.log(err);
 });
 
 // Find all the task 
