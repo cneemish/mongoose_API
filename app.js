@@ -56,3 +56,11 @@ Tasks.create(newTask)
 });
 
 // Find all the task 
+
+Tasks.find({})
+.then((data)=>{
+    console.log("All tasks", data);
+})
+.catch((err)=>{
+    console.log(err);
+});
