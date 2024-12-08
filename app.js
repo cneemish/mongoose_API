@@ -20,3 +20,12 @@ const connect = mongoose.connect(dbURI,{
     useNewURLParser: true,
     useUnifiedTopology: true,
 });
+
+connect.then(
+    (db) => {
+        console.log("Connected Successfullt to Mongo Server");
+    },
+    (err) =>{
+        console.log(err);
+    }
+);
